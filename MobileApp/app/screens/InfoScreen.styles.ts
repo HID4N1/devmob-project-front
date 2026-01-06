@@ -1,0 +1,435 @@
+import { StyleSheet } from 'react-native';
+import { colors } from '../theme/colors';
+
+export const styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
+  bgDecorWrap: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  },
+  bgBubble: {
+    position: 'absolute',
+    width: 220,
+    height: 220,
+    borderRadius: 9999,
+    opacity: 0.35,
+  },
+  scroll: {
+    paddingBottom: 24,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  headerBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: colors.white,
+    padding: 16,
+    borderRadius: 16,
+    shadowColor: colors.shadow,
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    marginBottom: 20,
+    marginTop: 20,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+  },
+  title: {
+    fontSize: 22,
+    color: colors.primaryBlue,
+    fontWeight: 'bold',
+    flex: 1,
+    textAlign: 'center',
+  },
+  brand: {
+    color: '#60A5FA',
+    fontWeight: '900',
+    fontSize: 32,
+    letterSpacing: 1.5,
+  },
+  agentBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999,
+    backgroundColor: '#E0F7FA',
+    borderWidth: 1,
+    borderColor: '#BAE6FD',
+  },
+  agentBadgeText: {
+    color: '#1E40AF',
+    fontWeight: '700',
+  },
+  subtitleTop: {
+    marginTop: 2,
+    color: colors.textLight,
+  },
+  agent: {
+    color: colors.textLight,
+    fontWeight: 'bold',
+  },
+  card: {
+    backgroundColor: colors.white,
+    borderRadius: 16,
+    padding: 20,
+    shadowColor: colors.shadow,
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 2,
+    width: '100%',
+    marginBottom: 20,
+  },
+  label: {
+    color: colors.textDark,
+    fontWeight: '600',
+    marginBottom: 8,
+  },
+  input: {
+    backgroundColor: 'transparent',
+    borderColor: '#E5E7EB',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+
+  },
+  inputNeutral: {
+    borderColor: '#E5E7EB',
+  },
+  inputOk: {
+    borderColor: colors.green,
+  },
+  inputError: {
+    borderColor: '#EF4444',
+  },
+  chipsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 10,
+  },
+  chip: {
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 999,
+    backgroundColor: '#F3F4F6',
+  },
+  chipSelected: {
+    backgroundColor: colors.primaryBlue,
+  },
+  sectionTitle: {
+    color: colors.white,
+    fontWeight: '900',
+    fontSize: 27,
+    marginBottom: 6,
+    textAlign: 'center',
+
+  },
+  helper: {
+    color: colors.white,
+    marginTop: 8,
+  },
+  priceHalo: {
+    height: 44,
+    borderRadius: 999,
+    marginBottom: 10,
+    marginTop: 6,
+  },
+  formBlock: {
+    backgroundColor: '#FAFAFA',
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#EEF2F7',
+    marginBottom: 16,
+  },
+  formHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 6,
+  },
+  hintText: {
+    color: colors.textLight,
+    fontWeight: '500',
+  },
+  divider: {
+    height: 1,
+    backgroundColor: '#E5E7EB',
+    marginVertical: 12,
+    opacity: 0.7,
+  },
+  progressWrapTop: {
+    marginBottom: 10,
+  },
+  progressStep: {
+    color: colors.textDark,
+    fontWeight: '700',
+    marginBottom: 6,
+  },
+
+  segmentedRow: {
+    flexDirection: 'row',
+    backgroundColor: '#EFF6FF',
+    borderRadius: 999,
+    padding: 4,
+    gap: 6,
+  },
+  segmentedItem: {
+    paddingHorizontal: 18,
+    paddingVertical: 8,
+    borderRadius: 999,
+    backgroundColor: 'transparent',
+  },
+  segmentedItemActive: {
+    paddingHorizontal: 18,
+    paddingVertical: 8,
+    borderRadius: 999,
+  },
+  segmentedText: {
+    color: colors.textDark,
+    fontWeight: '700',
+  },
+  segmentedTextActive: {
+    color: colors.white,
+    fontWeight: '800',
+  },
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F4F7FA',
+    borderColor: '#E5E7EB',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: 10,
+  },
+  inputRowFocused: {
+    borderColor: colors.primaryBlue,
+    shadowColor: colors.primaryBlue,
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  inputIcon: { 
+    fontSize: 18, 
+    marginRight: 6, 
+    opacity: 0.85 
+  },
+  validationRow: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'space-between' 
+  },
+  footer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: colors.white,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    paddingTop: 12,
+    paddingBottom: 20,
+    shadowColor: colors.shadow,
+    shadowOpacity: 0.12,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: -4 },
+    elevation: 12,
+  },
+
+  giftCardText: {
+    color: colors.textDark,
+    fontWeight: '800',
+    fontSize: 20,
+    marginTop: 12,
+    marginBottom: 12,
+    textAlign: 'center',
+    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
+  },
+  giftCardLarge: {
+    width: '100%',
+    backgroundColor: colors.white,
+    borderRadius: 14,
+    shadowColor: colors.shadow,
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    alignItems: 'center',
+    marginBottom: 16,
+
+  },
+
+  giftCardMulti: {
+    width: '100%',
+    backgroundColor: colors.white,
+    borderRadius: 14,
+    shadowColor: colors.shadow,
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    alignItems: 'center',
+    marginBottom: 16,
+    padding: 8,
+  },
+  logoutButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: '#EF4444',
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logoutText: {
+    color: colors.white,
+    fontWeight: '700',
+    fontSize: 14,
+  },
+
+  verticalTextContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    transform: [{ translateY: '-50%' }, { rotate: '-90deg' }],
+    left: -110,
+    top: '50%',
+    position: 'absolute',
+    zIndex: 10,
+    backgroundColor: colors.primaryBlue,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
+  },
+
+  // Enhanced gifts section styles
+  giftsSection: {
+    marginBottom: 20,
+  },
+  giftsScrollContent: {
+    paddingHorizontal: 4,
+    paddingVertical: 8,
+  },
+  giftCardContainer: {
+    marginHorizontal: 8,
+    width: 280,
+    height: 300,
+  },
+  giftCard: {
+    backgroundColor: colors.white,
+    borderRadius: 16,
+    shadowColor: colors.shadow,
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 8,
+    overflow: 'hidden',
+    borderWidth: 2,
+  },
+  giftCardPremium: {
+    borderColor: '#FFD700',
+    backgroundColor: 'linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 100%)',
+  },
+  giftCardStandard: {
+    borderColor: '#E5E7EB',
+    backgroundColor: 'linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%)',
+  },
+  giftCardBasic: {
+    borderColor: '#E5E7EB',
+    backgroundColor: 'linear-gradient(135deg, #F1F5F9 0%, #FFFFFF 100%)',
+  },
+  giftImageContainer: {
+    position: 'relative',
+    width: '100%',
+    height: 280,
+    overflow: 'hidden',
+  },
+  giftImage: {
+    width: '100%',
+    height: '100%',
+  },
+  giftRangeBadge: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+    backgroundColor: colors.primaryBlue,
+  },
+  badgePremium: {
+    backgroundColor: '#ffffff',
+  },
+  badgeStandard: {
+    backgroundColor: colors.primaryBlue,
+  },
+  badgeBasic: {
+    backgroundColor: '#6B7280',
+  },
+  giftRangeText: {
+    color: colors.white,
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 0.5,
+  },
+  stockOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  stockText: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+  },
+  giftInfo: {
+    padding: 12,
+    alignItems: 'center',
+  },
+  giftName: {
+    color: colors.textDark,
+    fontWeight: '800',
+    fontSize: 14,
+    textAlign: 'center',
+    marginBottom: 4,
+  },
+  giftStock: {
+    color: colors.textLight,
+    fontSize: 12,
+    textAlign: 'center',
+    fontWeight: '600',
+  },
+
+  legalTextContainer: {
+    alignItems: 'center',
+    marginTop: 1,
+  },
+  legalText: {
+    color: colors.white,
+    fontSize: 12,
+    fontWeight: '500',
+    opacity: 0.8,
+    fontStyle: 'italic',
+  },
+  verticalText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.white,
+  },
+});
