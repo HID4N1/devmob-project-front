@@ -5,6 +5,7 @@ import NeonButton from '../components/NeonButton';
 import { styles } from './Game.styles';
 import { useLocalSearchParams, router } from 'expo-router';
 import { GameService } from '../services/GameService';
+import FirebaseService from '../services/FirebaseService';
 
 export type GameParams = {
   ticketNumber: string;
@@ -43,6 +44,11 @@ export default function Game({ navigation }: { navigation: any }) {
   const winningOpacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
+    // Track screen view
+    FirebaseService.trackScreenView('Game');
+  }, []);
+
+  useEffect(() => {
     animY.forEach(v => v.setValue(0));
   }, [cellH]);
 
@@ -76,6 +82,10 @@ export default function Game({ navigation }: { navigation: any }) {
 
   const startSpin = async () => {
     if (phase !== 'idle' || !ticketId) return;
+    
+    // Track button click
+    await FirebaseService.trackButtonClick('start_spin', 'Game');
+    
     setPhase('spinning');
 
     let targets: number[] = [];

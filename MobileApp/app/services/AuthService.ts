@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 import {API_BASE_URL} from './config';
 import { Platform } from 'react-native';
+import FirebaseService from './FirebaseService';
 
 
 export const AuthService = {
@@ -19,9 +20,19 @@ export const AuthService = {
       await SecureStore.setItemAsync('refresh_token', response.data.refresh);
       await SecureStore.setItemAsync('user_role', response.data.role);
 
+      // Track login with Firebase
+      await FirebaseService.trackLogin(username, 'username');
+      await FirebaseService.setUserId(username);
+
       return { success: true, role: response.data.role };
     } catch (error: any) {
       console.log("LOGIN ERROR FULL OBJECT:", error);
+      
+      // Track login error with Firebase
+      await FirebaseService.trackError(error instanceof Error ? error : new Error(String(error)), {
+        context: 'login',
+        username: username.substring(0, 3) + '***', // Partial for privacy
+      });
     
       if (error.response) {
         console.log("RESPONSE STATUS:", error.response.status);
@@ -72,8 +83,15 @@ export const AuthService = {
       await SecureStore.deleteItemAsync('access_token');
       await SecureStore.deleteItemAsync('refresh_token');
       await SecureStore.deleteItemAsync('user_role');
+      
+      // Track logout with Firebase
+      await FirebaseService.trackLogout();
+      
       return { success: true };
     } catch (error: any) {
+      await FirebaseService.trackError(error instanceof Error ? error : new Error(String(error)), {
+        context: 'logout',
+      });
       throw new Error('Logout failed. Please try again.');
     }
   },

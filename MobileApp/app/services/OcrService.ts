@@ -1,6 +1,7 @@
 import * as FileSystem from 'expo-file-system';
 import * as SecureStore from 'expo-secure-store';
 import { API_BASE_URL } from './config';
+import FirebaseService from './FirebaseService';
 
 interface TicketData {
   external_ticket_number: string | null;
@@ -18,6 +19,7 @@ class OcrService {
    * @returns {Promise<TicketData>} - Parsed ticket data.
    */
   static async processTicketImage(imageUri: string): Promise<TicketData> {
+    const startTime = Date.now();
     try {
       console.log('Processing ticket image with URI:', imageUri);
 
@@ -62,6 +64,13 @@ class OcrService {
       console.log('- stake:', data.stake);
       console.log('- CRC:', data.CRC);
       console.log('- Detaillant:', data.Detaillant);
+      
+      const duration = Date.now() - startTime;
+      
+      // Track successful OCR
+      await FirebaseService.trackTicketScan(true);
+      await FirebaseService.trackOcrProcessingTime(duration, true);
+      
       return {
         external_ticket_number: data.external_ticket_number || null,
         stake: data.stake || null,
@@ -69,6 +78,15 @@ class OcrService {
         Detaillant: data.Detaillant || null,
       };
     } catch (error) {
+      const duration = Date.now() - startTime;
+      
+      // Track failed OCR
+      await FirebaseService.trackTicketScan(false, error instanceof Error ? error.message : 'Unknown error');
+      await FirebaseService.trackOcrProcessingTime(duration, false);
+      await FirebaseService.trackError(error instanceof Error ? error : new Error(String(error)), {
+        context: 'ocr_processing',
+      });
+      
       console.error('Error processing ticket image:', error);
       throw error;
     }

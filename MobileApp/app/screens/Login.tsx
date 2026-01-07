@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -14,6 +14,7 @@ import NextButton from '../components/NextButton';
 import { styles } from './Login.styles';
 import { AuthService } from '../services/AuthService';
 import { router } from 'expo-router';
+import FirebaseService from '../services/FirebaseService';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
@@ -21,6 +22,11 @@ export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    // Track screen view
+    FirebaseService.trackScreenView('Login');
+  }, []);
 
   const handleContinue = async () => {
     const user = username.trim();

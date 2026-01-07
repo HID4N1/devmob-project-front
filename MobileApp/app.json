@@ -51,7 +51,16 @@
       "eas": {
         "projectId": "602e1d16-fa3b-4cde-86a9-4356e16625f2"
       },
-      "API_BASE_URL": "https://server.quattroplus.ma/api"
+      "API_BASE_URL": "https://server.quattroplus.ma/api",
+      "firebase": {
+        "apiKey": "AIzaSyBcrOoa6li1rZ-xugyOd1VvAinoi43QwlU",
+        "authDomain": "quatroplus-355df.firebaseapp.com",
+        "projectId": "quatroplus-355df",
+        "storageBucket": "quatroplus-355df.firebasestorage.app",
+        "messagingSenderId": "655965859490",
+        "appId": "1:655965859490:web:45723acd45621900cd71fb",
+        "measurementId": "G-YKYPGNBKT0"
+      }
     },
     "owner": "diyaeeddine",
     "runtimeVersion": {
